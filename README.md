@@ -1,6 +1,14 @@
 #  Signal Processing Pipeline
 
-This project is a signal processing pipeline for Group Prometheus, under supervision of Prof Richard Kitney for the Biomedical Engineering Group Project 2025-26. The pipeline extracts HRV parameters from PPG signals acquired using the PLUX HEARTBIT monitor.
+This project is a signal processing pipeline for Group Prometheus, under supervision of Prof Richard Kitney for the Biomedical Engineering Group Project 2025-26. The pipeline is built off of the e2epyppg project: https://github.com/HealthSciTech/E2E-PPG and extracts HRV parameters from PPG signals. This project adapts e2epyppg for use with the PLUX HEARTBIT sensor.
+
+@inproceedings{feli2023end,
+  title={End-to-End PPG Processing Pipeline for Wearables: From Quality Assessment and Motion Artifacts Removal to HR/HRV Feature Extraction},
+  author={Feli, Mohammad and Kazemi, Kianoosh and Azimi, Iman and Wang, Yuning and Rahmani, Amir and Liljeberg, Pasi},
+  booktitle={2023 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)},
+  year={2023},
+  organization={IEEE}
+}
 
 ***NOTE:*** This was created on MacOS and has not yet been tested on windows so may not work.
 
