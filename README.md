@@ -11,8 +11,8 @@ This project uses Python 3.10
 ### 1. Clone the repository:
 In the terminal:
 
-    git clone https://github.com/your-username/your-repo.git
-    cd your-repo
+    git clone https://github.com/oscar-graham/signal_processing.git
+    cd signal_processing
 
 Or clone manually via github.
 
