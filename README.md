@@ -25,24 +25,37 @@ In the terminal:
 Or clone manually via github.
 
 ### 2. Create Virtual Environment:
+``` bash
+    python3.10 -m venv sigproc
+    source sigproc/bin/activate   # MacOS
+    # sigproc\Scripts\activate    # Windows
 
-    python3.10 -m venv .venv
-    source .venv/bin/activate # MacOS
-    # .venv\Scripts\activate    # Windows
-    
+    # Or with Anaconda
+    conda create -n sigproc python=3.10
+    conda activate sigproc
+```
 
 ###  3. Install dependencies:
-
+``` bash
     pip install --upgrade pip
     pip install -r requirements.txt
+```
 
 ### 4. Run the project
+``` bash
+    source .venv/bin/activate 
+    # or
+    conda activate sigproc
 
-    source .venv/bin/activate
     python main.py
-
+```
 
 ## Additional Information
 Currently main.py is hardcoded to use one specific signal from the /data subdirectory (and also only analyses a single channel from that recording). 
 
 To use a different signal, paste the signal into the /data subdirectory and change the file_name in main.py to point to the new file path for that signal.
+
+## Tasks:
+ - Convert output csv files to Parquet files
+ - Send output files to external database (Supabase or DuckDB), Currently the input signals are just in /data and the files are outputted into the project root
+ 

@@ -5,6 +5,7 @@ from e2epyppg.ppg_clean_extraction import clean_seg_extraction
 from e2epyppg.ppg_peak_detection import peak_detection
 from e2epyppg.ppg_hrv_extraction import hrv_extraction
 from data.data import csv2df
+from data.txt2csv import txt_to_csv
 import numpy as np
 import pandas as pd
 import time
@@ -12,12 +13,15 @@ import time
 
 time_start = time.time()
 # Provide your PPG signal and sampling rate (you can use your own signal in format `np.ndarray`)
-file_name = "data/opensignals_98D351FE8835_2025-12-21_20-12-02.csv"
+file_name = "data/opensignals_98D351FE8835_2026-01-03_21-00-20.csv" # Change this to your file path
+if file_name.endswith('.txt'):
+    file_name = txt_to_csv(file_name)  # Convert to CSV first
+
 data = csv2df(file_name)
 A1 = data['A1'].values
 
 input_sig = A1
-sampling_rate = 1000
+sampling_rate = 100
 window_length_sec = 60
 
 # Set this parameter True if the signal has not been filtered:
@@ -50,5 +54,6 @@ else:
 
 print("HR and HRV parameters:")
 print(hrv_data)
+hrv_data.to_csv("hrv_output.csv", index=False)
 time_end = time.time()
 print("Total processing time (seconds):", time_end - time_start)

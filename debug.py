@@ -1,7 +1,10 @@
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv('data/opensignals_98D351FE8835_2025-12-21_20-12-02.csv')
+
+fs = 100 # set your sampling rate here
+
+df = pd.read_csv("data/opensignals_98D351FE8835_2026-01-03_21-00-20.csv")
 print('columns:', df.columns.tolist())
 sig = df['A1'].values   # or replace with the column you used
 print('len, type:', len(sig), type(sig))
@@ -13,13 +16,15 @@ print(f'percent identical to first value: {flat_pct:.1f}%')
 
 import matplotlib.pyplot as plt
 N = 2000
+xrange = 2000 / fs
 plt.figure(1)
 plt.plot(sig[:N])
 plt.title('raw signal (first %d samples)' % N)
+plt.xlabel('samples')
+plt.ylabel('amplitude (AU)')
 plt.show()
 
 from scipy.signal import periodogram
-fs = 250  # use the sampling_rate you think is correct
 f, pxx = periodogram(sig, fs=fs)
 import numpy as np
 hr_band = (f >= 0.5) & (f <= 5)
